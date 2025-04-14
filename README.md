@@ -4,7 +4,7 @@ This system enables scalable storage, training, and dynamic management of alpha 
 
 ---
 
-## 🔁 Overall Logic Flow
+## Overall Logic Flow
 
 ```
 [Step 1]  Collect raw factor data
@@ -37,7 +37,7 @@ This system enables scalable storage, training, and dynamic management of alpha 
 
 ---
 
-## 🗂️ Tables in ClickHouse
+## Tables in ClickHouse
 
 ### 1. `factor_data`
 ```sql
@@ -65,7 +65,7 @@ ORDER BY factor_name;
 
 ---
 
-## 🧠 ML Training (Simulation)
+## ML Training (Simulation)
 
 ```python
 from xgboost import XGBRegressor
@@ -78,7 +78,7 @@ important_factors = X_train.columns[model.feature_importances_ > 0.01].tolist()
 
 ---
 
-## 🔄 Deciding Core vs Dynamic Factors
+## Deciding Core vs Dynamic Factors
 
 | Criteria                            | Promote to Core | Stay Dynamic  |
 |-------------------------------------|------------------|----------------|
@@ -91,7 +91,7 @@ You may write a script to update `factor_metadata` accordingly and reflect chang
 
 ---
 
-## 🧊 Cold-Hot Data Separation
+## Cold-Hot Data Separation
 
 Run `archive_data.py` regularly (e.g., via Airflow):
 - Move data older than T days to `factor_data_archive`
@@ -99,7 +99,7 @@ Run `archive_data.py` regularly (e.g., via Airflow):
 
 ---
 
-## ✅ Future Work
+## Future Work
 - Add `train_and_promote.py` to automate: training, alpha selection, metadata updates
 - Build a materialized view for top core factors
 - Log training performance of each factor
