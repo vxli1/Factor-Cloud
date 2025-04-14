@@ -57,7 +57,7 @@ model.fit(X_train, y_train)
 important_factors = X_train.columns[model.feature_importances_ > 0.01].tolist()
 ```
 
-- You can then upload these factors as new predictions and tag them in metadata as `promoted`.
+- Can then upload these factors as new predictions and tag them in metadata as `promoted`.
 
 ---
 
