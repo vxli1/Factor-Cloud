@@ -6,16 +6,33 @@ This system enables scalable storage, training, and dynamic management of alpha 
 
 ## 🔁 Overall Logic Flow
 
-```mermaid
-graph LR
-A[Collect raw factor data] --> B[upload_dataframe.py to ClickHouse]
-B --> C[Update factor_metadata table (active/deprecated)]
-C --> D[load_factor_data.py constructs factor matrix]
-D --> E[Train ML model]
-E --> F[Upload trained factor values]
-F --> G[Update metadata status (promoted/deprecated)]
-G --> H[archive_data.py separates cold/hot data]
-H --> D
+```
+[Step 1]  Collect raw factor data
+     |
+     v
+[Step 2]  upload_dataframe.py to ClickHouse
+     |
+     v
+[Step 3]  Update factor_metadata table (active/deprecated)
+     |
+     v
+[Step 4]  load_factor_data.py constructs factor matrix
+     |
+     v
+[Step 5]  Train ML model
+     |
+     v
+[Step 6]  Upload trained factor values to ClickHouse
+     |
+     v
+[Step 7]  Update metadata status (promoted/deprecated)
+     |
+     v
+[Step 8]  archive_data.py separates cold/hot data
+     |
+     +---------------------------+
+     |                           |
+     +--------< Loop >----------+
 ```
 
 ---
