@@ -1,0 +1,17 @@
+type,date,stocks,factors,duration_sec
+write,2025-04-11,100,5,1.79
+write,2025-04-12,1000,10,3.0
+write,2025-04-13,5000,20,6.84
+write,2025-04-14,10000,30,11.87
+write,2025-04-15,25000,40,30.86
+read_compressed,2025-04-11,100,40,1.02
+read_compressed,2025-04-12,1000,40,1.65
+read_compressed,2025-04-13,5000,40,2.89
+read_compressed,2025-04-14,10000,40,4.41
+read_compressed,2025-04-15,25000,40,10.4
+read_uncompressed,2025-04-11,100,40,1.03
+read_uncompressed,2025-04-12,1000,40,1.63
+read_uncompressed,2025-04-13,5000,40,2.81
+read_uncompressed,2025-04-14,10000,40,4.51
+read_uncompressed,2025-04-15,25000,40,10.2
+batch_write,2025-04-16~2025-04-18,1000,20,9.9
